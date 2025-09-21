@@ -8,14 +8,11 @@
 
 ## İçindekiler
 - [Özellikler](#özellikler)
-- [Teknoloji Yığını](#teknoloji-yığını)
+- [Teknolojiler](#teknolojiler)
 - [Mimari](#mimari)
 - [Klasör Yapısı](#klasör-yapısı)
-- [Kurulum & Çalıştırma](#kurulum--çalıştırma)
-- [Testler](#testler)
 - [Ekran Görüntüleri](#ekran-görüntüleri)
 - [Yol Haritası](#yol-haritası)
-- [Lisans](#lisans)
 - [English Summary](#english-summary)
 
 ---
@@ -44,7 +41,7 @@
 
 ---
 
-## Teknoloji Yığını
+## Teknolojiler
 - **Swift 5.10**, **iOS 17+**, **Xcode 15+**
 - **SwiftUI** (UI), **VIPER/Clean Swift (VIP)** mimarisi
 - **UIKit + CoreAnimation** (özel animasyonlar ve grafikler)
@@ -66,3 +63,50 @@
 ---
 
 ## Klasör Yapısı
+HabitTracker/
+├── App/
+│ ├── HabitTrackerApp.swift # Root & TabView
+│ └── SplashView.swift # AnimatedBrand + Splash
+├── Core/
+│ ├── Persistence/
+│ │ ├── PersistenceController.swift
+│ │ └── HabitRepository.swift
+│ └── Utils/
+│ ├── Theme.swift # Orange/Black theme
+│ ├── Haptics.swift
+│ ├── Animations/
+│ │ ├── ProgressRingView.swift
+│ │ ├── ConfettiView.swift
+│ │ ├── BouncyToggleStyle.swift
+│ │ └── BarChartUIKitView.swift
+│ └── Extensions/
+│ ├── Date+Ext.swift
+│ └── Array+Safe.swift
+├── Modules/
+│ ├── Dashboard/
+│ ├── HabitList/
+│ └── Insights/
+├── Widgets/ (opsiyonel)
+└── Tests/
+├── HabitRepositoryTests.swift
+└── HabitUseCaseTests.swift
+
+## Yol Haritası
+- App Groups ile Widget’ın canlı veriyi okuması
+- Çoklu dil (Localizable.strings)
+- Lottie efektleri (ikon/splash/konfetti varyasyonları)
+- iCloud Sync (Core Data + CloudKit)
+- Erişilebilirlik (Dynamic Type, VoiceOver etiketleri)
+- UI/UX cila (mikro animasyonlar, boş durum ekranları)
+
+## English Summary
+v0.1 – First release
+A bold habit tracker with an orange/black brand theme, custom animations, and a VIPER/Clean Swift-inspired architecture. More updates and UI/UX polish are planned.
+Features
+Dashboard: Circular progress ring (UIKit+CoreAnimation), confetti + glow at 100%, daily quote
+Habit Cards: Glassmorphism cards, custom toggle (bounce + haptics), animated icons
+Insights: Weekly custom bar chart (UIKit+CoreAnimation), Monthly trend via Swift Charts
+Theme: Orange/Black brand theme, splash animation & logo lettering
+Persistence: Core Data
+WidgetKit (optional): Home screen progress ring + quote (live data with App Groups)
+Tests: Unit tests (add/delete/complete, progress calc)
